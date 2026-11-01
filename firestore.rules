@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /participantProfiles/{uid} {
+      // A participant can create only their own pending profile.
+      allow create: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.status == 'pending'
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.keys().hasOnly([
+          'uid', 'fullName', 'email', 'phone', 'program', 'mode',
+          'status', 'emailVerified', 'createdAt'
+        ]);
+
+      // A participant can read only their own status/profile.
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list: if false;
+
+      // No client-side updates/deletes. Panitia approves from Firebase Console
+      // or later through a trusted server/Admin SDK with verified admin privileges.
+      allow update, delete: if false;
+    }
+  }
+}
