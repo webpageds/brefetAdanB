@@ -22,7 +22,7 @@ Website publik dan konsep portal pembelajaran Kelas Privat Brevet Pajak A dan B 
 5. Buka URL Pages yang ditampilkan GitHub.
 
 ## Catatan penting
-Saat ini repository berisi frontend statis. Formulir pendaftaran dan login masih berupa simulasi antarmuka; tidak ada data yang dikirim atau disimpan. Untuk mengoperasikan LMS sungguhan, integrasikan backend, autentikasi aman, database, penyimpanan dokumen privat, akses berbasis peran (peserta/admin/instruktur), jadwal kelas, materi, pembayaran, kehadiran, dan audit log.
+Repository masih berupa frontend statis. Formulir pendaftaran sudah disiapkan untuk mengirim data ke Google Apps Script, tetapi belum akan menyimpan data sampai Apps Script dibuat, di-deploy, dan URL /exec diisi pada config.js. Login peserta masih berupa placeholder dan tidak boleh dipakai untuk mengumpulkan password. LMS penuh tetap memerlukan autentikasi aman dan fitur tambahan seperti materi, jadwal, presensi, serta akses berbasis peran.
 
 Jangan menyimpan password, NIK, KTM, bukti pembayaran, atau dokumen pribadi di JavaScript publik atau repository. Rekening/QRIS, logo resmi, pengajar, kurikulum, detail sertifikasi, dan jadwal angkatan perlu dikonfirmasi dan disetujui pihak kampus/panitia sebelum dipublikasikan.
 
