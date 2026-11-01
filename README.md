@@ -27,3 +27,6 @@ Saat ini repository berisi frontend statis. Formulir pendaftaran dan login masih
 Jangan menyimpan password, NIK, KTM, bukti pembayaran, atau dokumen pribadi di JavaScript publik atau repository. Rekening/QRIS, logo resmi, pengajar, kurikulum, detail sertifikasi, dan jadwal angkatan perlu dikonfirmasi dan disetujui pihak kampus/panitia sebelum dipublikasikan.
 
 Konten program awal mengacu pada formulir pendaftaran Kelas Privat Brevet Pajak A dan B Tahun 2026.
+
+## Google Sheets backend
+Setup guide: [GOOGLE-SHEETS-SETUP.md](GOOGLE-SHEETS-SETUP.md). Apps Script source: [apps-script/Code.gs](apps-script/Code.gs). Before the form can save registrations, deploy the Apps Script web app and paste its public /exec URL into config.js. Admin dashboard and records live in a Google Sheet shared only with authorized staff.
