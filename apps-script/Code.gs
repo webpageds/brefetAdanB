@@ -21,8 +21,8 @@ function setupBrevetSheet() {
   }
   let data = ss.getSheetByName('Pendaftar');
   if (!data) data = ss.insertSheet('Pendaftar');
-  data.clear();
-  data.getRange(1,1,1,HEADERS.length).setValues([HEADERS]);
+  // Preserve existing registrations if setup is run again.
+  if (data.getLastRow() === 0) data.getRange(1,1,1,HEADERS.length).setValues([HEADERS]);
   data.setFrozenRows(1);
   data.getRange(1,1,1,HEADERS.length).setBackground('#13213a').setFontColor('#ffffff').setFontWeight('bold').setWrap(true);
   data.setColumnWidths(1,9,155);
