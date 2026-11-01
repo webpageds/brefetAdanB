@@ -80,8 +80,8 @@ function doPost(e) {
     const email = clean_(p.email, 180).toLowerCase();
     const phone = clean_(p.phone, 30);
     const program = clean_(p.program, 60);
-    const mode = clean_(p.mode, 60);
-    if (!name || !email || !phone || !program || !mode) throw new Error('Lengkapi semua kolom wajib.');
+    const mode = clean_(p.mode, 60);\n    const consent = String(p.consent || '');
+    if (!name || !email || !phone || !program || !mode) throw new Error('Lengkapi semua kolom wajib.');\n    if (consent !== 'yes') throw new Error('Persetujuan penggunaan data wajib dicentang.');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Format email belum benar.');
     if (!/^[0-9+() .-]{8,30}$/.test(phone)) throw new Error('Nomor WhatsApp belum benar.');
     if (ALLOWED_PROGRAMS.indexOf(program) < 0 || ALLOWED_FORMATS.indexOf(mode) < 0) throw new Error('Pilihan program atau kelas tidak valid.');
